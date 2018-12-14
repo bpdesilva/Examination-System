@@ -1,0 +1,53 @@
+﻿@model OEMS.Models.UserViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/Login/css/style.css">
+    <script src="~/Content/Login/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" />
+ 
+</head>
+<body>
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="container">
+            <div class="info">
+                <h1>Login </h1>
+            </div>
+        </div>
+        <div class="form">
+            <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" /></div>
+            <form class="login-form">
+                @Html.EditorFor(model => model.Username)
+                @Html.EditorFor(model => model.Password)
+                <input type="submit" value="Login" class="btn btn-danger"/>
+            </form>
+        </div>
+        //errors
+        <div class="form-group error">
+            @*attempts made to login*@
+            @if (@ViewBag.Failedcount != null)
+                {
+
+                <label> Failed Attempt count is: @ViewBag.Failedcount</label>
+            }
+            @*if user is invalid*@ 
+            @if (@ViewBag.NotValidUser != null)
+                {
+
+                <label> @ViewBag.NotValidUser</label>
+            }
+        </div>
+    }
+</body>
+</html>   

@@ -1,0 +1,37 @@
+﻿@model OEMS.Models.ExamLiveViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutNoNav.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="text-right">
+        Question @(Model.CurrentQuestionId + 1) out of @Model.ExamQuestions.Count().ToString()
+
+    </div>
+    <div style="display:none">
+        @Html.HiddenFor(model => model.LiveModelJson)
+        @Html.HiddenFor(model => model.StudentId)
+        @Html.HiddenFor(model => model.ModuleId)
+        @Html.HiddenFor(model => model.CurrentQuestionId)
+        @Html.HiddenFor(model => model.TotalMarks)
+    </div>
+
+    @Model.Question
+    <br />
+    <br />
+
+    foreach (var item in Model.Answers)
+    {
+        <div>
+            @Html.RadioButtonFor(model => model.Answer, item) @item
+        </div>
+    }
+
+    <br />
+    <br />
+    <br />
+    <input type="submit" value="Submit" class="btn btn-default"/>
+}

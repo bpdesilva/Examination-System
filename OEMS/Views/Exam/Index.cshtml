@@ -1,0 +1,62 @@
+﻿@using OEMS.Models;
+@model List<ExamViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Exams
+</h2>
+
+<div>
+    @using (Html.BeginForm("Create", "Exam", FormMethod.Post))
+    {
+        @Html.DropDownList("ListModules", (ViewBag.ListModules as SelectList), "Select Module")
+        <input id="Submit1" type="submit" value="Register For Exam" class="btn btn-info"/>
+    }
+</div>
+
+@if (Model.Count() > 0)
+{
+    <div>
+        <table class="table ">
+            <tr>
+                <th>Module</th>
+                <th>Attempts</th>
+                <th>Marks</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.ModuleName</th>
+                    <th>@item.Attempts</th>
+                    <th>@item.Marks</th>
+                    @if(@item.Attempts< 3 && item.Marks < 50){
+                    <th><button onclick="window.location.href='/Exam/Exam/?mid=@item.ModuleId&sid=@AccountSession.User.StudentId'"rel="tooltip" class="btn btn-success"><i class="material-icons">edit</i></button></th>
+                    }
+                    else
+                    {
+                        if(item.Marks < 50)
+                        {
+                            <th>Fail</th>
+                        }
+                        else
+                        {
+                            <th>Pass</th>
+                        }
+                    }
+
+                </tr>
+            }
+        </table>
+
+
+    </div>
+}
+
+<div>
+    <a href="/Home/Index">Back Home</a>
+</div>

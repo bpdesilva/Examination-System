@@ -1,0 +1,77 @@
+﻿@model OEMS.Models.StudentViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="info">
+    <div class="icon icon-primary">
+        <i class="material-icons">chat</i>
+    </div>
+    <div class="description">
+        <h2>Student Information</h2>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CourseId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Course)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Course)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AvgMarks)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AvgMarks)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+        <p>
+            @if (AccountSession.User.Type == 'S')
+            {
+                <button onclick="window.location.href='/Home/Index'"  class="btn btn-info btn-link">
+                    Back Home</button>
+            }
+            else
+            {
+                <button onclick="window.location.href='/Student/Index'"  class="btn btn-info btn-link">
+                    Back To List</button>
+            }
+</p>

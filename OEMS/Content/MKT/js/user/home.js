@@ -1,0 +1,3 @@
+function viewProduct(){
+    $('#hamperModal').modal();
+}

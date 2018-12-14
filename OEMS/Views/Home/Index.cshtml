@@ -1,0 +1,63 @@
+﻿@model OEMS.Models.UserModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="text-right">
+<h3>Welcome @Model.FName @Model.LName</h3>
+@if (Model.Type == 'S')
+{
+    <div>
+        <h4>Student</h4>
+    </div>
+}
+@if (Model.Type == 'L')
+{
+    <div>
+        <h4>Lecturer</h4>
+    </div>
+}
+@if (Model.Type == 'A')
+{
+    <div>
+        <h4>Admin</h4>
+    </div>
+}
+<button onclick="window.location.href='/Home/Signout'" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="sign out of the app">Sign Out</button>
+                </div>
+                    <div class="row">
+                        @if (Model.Type == 'S')
+                        {
+                            <div>
+                                <button onclick="window.location.href='/Student/View/@AccountSession.User.AccountId'"class="btn btn-lg btn-success">View Student Profile</button>
+                            </div>
+                            <div>
+                                <button onclick="window.location.href='/Exam/Index'" class="btn btn-lg btn-info">Manage Exams</button>
+                            </div>
+                        }
+                        @if (Model.Type == 'L')
+                        {
+                            <div>
+                                <button onclick="window.location.href='/Student/AllView'" class="btn btn-lg btn-primary">Student Grades</button>
+                            </div>
+                            <div>
+                                <button onclick="window.location.href='/Module/Index'"  class="btn btn-lg btn-info">Manage Modules</button>
+                            </div>
+                        }
+                        @if (Model.Type == 'A')
+                        {
+                            <div>
+                                <button onclick="window.location.href='/Student/Index'" class="btn btn-lg btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Manage student data">Manage Students</button>
+                            </div>
+                            <div>
+                                <button onclick="window.location.href='/Lecturer/Index'" class="btn btn-lg btn-info"  data-toggle="tooltip" data-placement="bottom" title="Manage Lecturers data">Manage Lecturers</button>
+                            </div>
+                            <div>
+                                <button onclick="window.location.href='/Course/Index'" class="btn btn-lg btn-success"  data-toggle="tooltip" data-placement="bottom" title="Manage Courses data">Manage Courses</button>
+                            </div>
+                            <div>
+                                <button onclick="window.location.href='/Module/Index'" class="btn btn-lg btn-default"  data-toggle="tooltip" data-placement="bottom" title="Manage Modules data">Manage Modules</button>
+                            </div>
+                        }
+                    </div>
+

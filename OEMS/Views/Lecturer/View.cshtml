@@ -1,0 +1,77 @@
+﻿@model OEMS.Models.UserModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="info">
+    <div class="icon icon-primary">
+        <i class="material-icons">chat</i>
+    </div>
+    <div class="description">
+        <h2>Lecturer Profiles</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.AccountId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AccountId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Username)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Username)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Password)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Area)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Area)
+                </dd>
+
+            </dl>
+        </div></div></div>
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>

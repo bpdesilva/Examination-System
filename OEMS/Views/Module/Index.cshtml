@@ -1,0 +1,42 @@
+﻿@using OEMS.Models;
+@model List<ModuleModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Modules</h2>
+
+@if (AccountSession.User.Type == 'A')
+{
+    <button onclick="window.location.href='/Module/Create'" class="btn btn-info btn-link">Create Module</button>
+}
+
+@if (Model.Count() > 0)
+{
+    <div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.ModuleID</th>
+                    <th>@item.Name</th>
+                    <th><button onclick="window.location.href='/Module/Edit/@item.ModuleID'"rel="tooltip" class="btn btn-success"><i class="material-icons">edit</i></button></th>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+}
+
+<div>
+    <a href="/Home/Index">Back Home</a>
+</div>

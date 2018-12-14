@@ -1,0 +1,21 @@
+﻿@model OEMS.Models.ExamLiveViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Results</title>
+</head>
+<body>
+    <div class="text-center">
+        @if (Model.TotalMarks > 49) {
+            <h2>Results: Pass</h2>
+        } else {
+            <h2>Results: Fail</h2>
+        }
+        <h3>Marks: @Model.TotalMarks</h3>
+    </div>
+    @Html.ActionLink("Back to List", "Index")
+</body>
+</html>

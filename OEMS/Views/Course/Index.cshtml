@@ -1,0 +1,42 @@
+﻿@using OEMS.Models;
+@model List<CourseModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Courses
+</h2>
+<button onclick="window.location.href='/Course/Create'" class="btn btn-info btn-link">Create</button>
+
+
+@if (Model.Count() > 0)
+{
+    <div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>No of Modules</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.CourseId</th>
+                    <th>@item.Name</th>
+                    <th>@item.ModulesCount</th>
+                    <th><button onclick="window.location.href='/Course/Edit/@item.CourseId'"rel="tooltip" class="btn btn-success"><i class="material-icons">edit</i></button></th>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+}
+
+<div>
+    <a href="/Home/Index">Back Home</a>
+</div>

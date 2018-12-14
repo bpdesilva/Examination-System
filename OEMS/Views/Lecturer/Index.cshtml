@@ -1,0 +1,44 @@
+﻿@using OEMS.Models;
+@model List<UserModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Lecturers
+</h2>
+<button onclick="window.location.href='/Lecturer/Create'" class="btn btn-info btn-link">Create</button>
+
+
+@if (Model.Count() > 0)
+{
+    <div>
+        <table class="table ">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Area</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.AccountId</th>
+                    <th>@item.Name</th>
+                    <th>@item.Area</th>
+                    <th><button onclick="window.location.href='/Lecturer/View/@item.AccountId'" rel="tooltip" class="btn btn-info"><i class="material-icons">person</i></button></th>
+                    <th><button onclick="window.location.href='/Lecturer/Edit/@item.AccountId'" rel="tooltip" class="btn btn-success"><i class="material-icons">edit</i></button></th>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+}
+
+<div>
+    <button onclick="window.location.href='/Home/Index'"  class="btn btn-info btn-link">Back Home</button>
+</div>
